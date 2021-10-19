@@ -9,6 +9,10 @@
         where id = "2"
 --                        // 占位符只有一个可以随便写
     </select>
+    <select id="stuSelects" resultType="com.mybatis.mybatisCurd.Student">
+        select id as stuId, name as stuName, birth as stuBirth
+        from t_student
+    </select>
     <insert id="stuInsert" parameterType="com.mybatis.mybatisCurd.Student">
         insert into t_student (id, name, birth)
         values (#{stuId}, #{stuName}, #{stuBirth})

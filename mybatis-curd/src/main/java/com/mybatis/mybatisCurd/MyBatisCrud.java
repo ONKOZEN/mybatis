@@ -5,6 +5,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import java.util.List;
+
 public class MyBatisCrud {
     public static void main(String[] args) {
         SqlSession session = null;
@@ -25,9 +27,13 @@ public class MyBatisCrud {
 //            student.setStuBirth("1996-11-21");
 //            session.update("stuUpdate",student);
             //selectOne
-            Student student = session.selectOne("stuSelect","1");
-            System.out.println(student.getStuName());
+//            Student student = session.selectOne("stuSelect","1");
+//            System.out.println(student.getStuName());
             //seectList
+            List<Student> students = session.selectList("stuSelects");
+            for (Student student:students){
+                System.out.println(student.getStuName()+"的生日是"+student.getStuBirth());
+            }
             //delete
             session.commit();
         } catch (Exception e) {
