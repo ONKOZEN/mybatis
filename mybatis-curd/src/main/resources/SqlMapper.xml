@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper">
+    <select id="stuSelect" parameterType="java.lang.String" resultType="com.mybatis.mybatisCurd.Student">
+        select id as stuId, name as stuName, birth as stuBirth
+        from t_student
+        where id = "2"
+--                        // 占位符只有一个可以随便写
+    </select>
+    <insert id="stuInsert" parameterType="com.mybatis.mybatisCurd.Student">
+        insert into t_student (id, name, birth)
+        values (#{stuId}, #{stuName}, #{stuBirth})
+    </insert>
+    <update id="stuUpdate" parameterType="com.mybatis.mybatisCurd.Student">
+        update t_student
+        set name = #{stuName},
+            birth=#{stuBirth}
+        where id = #{stuId}
+    </update>
+</mapper>
