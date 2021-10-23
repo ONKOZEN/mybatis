@@ -1,5 +1,7 @@
 package com.mybatis.mybatisCurd;
 
+import java.util.UUID;
+
 /**
  * @author zhiyitec
  */
@@ -39,5 +41,13 @@ public class Student {
 
     public void setStuBirth(String stuBirth) {
         this.stuBirth = stuBirth;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getUUID());
+
+    }
+    public static String getUUID(){
+        return UUID.randomUUID().toString().replaceAll("-"," ");
     }
 }
